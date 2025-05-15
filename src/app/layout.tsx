@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import Layout from "./_layout";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Guuber Travel",
@@ -10,13 +9,6 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <html
-      lang="en"
-      className={`${inter.className} font-raleway bg-background text-text min-h-screen max-w-screen-sm p-4 text-base font-normal`}
-    >
-      <body>{children}</body>
-    </html>
-  );
+  return <Layout>{children}</Layout>;
 };
 export default RootLayout;
