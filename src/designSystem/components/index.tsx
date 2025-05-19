@@ -1,7 +1,7 @@
 import Input from "./Inputs/Input";
 export { Input };
 
-export { Button } from "./Inputs/Button";
+export { Button, buttonVariants } from "./Inputs/Button";
 
 export {
   Drawer,
