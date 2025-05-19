@@ -1,10 +1,9 @@
 type PostPanicRequestParams = {
-  serviceDisplayName: "Guuber";
   timeOfRequest: string;
-  severity: "LOW" | "MEDIUM" | "HIGH";
+  aidRequired: "AMBULANCE" | "SECURITY" | "POLICE";
   location: {
-    lat: string;
-    lng: string;
+    lat: number;
+    lng: number;
     displayValue: string;
   };
   user: {
@@ -21,6 +20,7 @@ export type PostPanicRequestResponseData = {
   id: string;
   status: "OPEN" | "ACKNOWLEDGED" | "DISPATCHED" | "RESOLVED";
   serviceDisplayName: string; // "Guuber"
+  aidRequired: "AMBULANCE" | "SECURITY" | "POLICE";
   timeOfRequest: string; // ISO timestamp
   severity: "LOW" | "MEDIUM" | "HIGH";
   location: {
@@ -42,16 +42,24 @@ export type PostPanicRequestResponseData = {
 export const postPanicRequest = async (
   body: PostPanicRequestParams,
 ): Promise<PostPanicRequestResponseData> => {
+  const payload = {
+    serviceDisplayName: "Guuber",
+    aidRequired: body?.aidRequired,
+    timeOfRequest: body?.timeOfRequest,
+    severity: "HIGH", // Guuber considers all panic requests to be high severity
+    location: body?.location,
+    user: body?.user,
+  };
   const res = await fetch("/api/panicRequest/postPanicRequest", {
-    method: "PATCH",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(payload),
   });
 
   if (!res.ok) {
-    throw new Error("Failed to update panic request status");
+    throw new Error("Failed to post panic request");
   }
 
   return res.json();

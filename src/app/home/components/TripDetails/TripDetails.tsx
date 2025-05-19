@@ -26,7 +26,7 @@ const TripDetails = () => {
 
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-4">
-            <div className="text-md text-nowrap">Abraham is on the way!</div>
+            <div className="text-nowrap">Abraham is on the way!</div>
             <TimeEstimate />
           </div>
           <DriverDetails />

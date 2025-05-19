@@ -15,3 +15,17 @@ export {
   DrawerTitle,
   DrawerDescription,
 } from "./Surfaces/Drawer";
+
+export {
+  AlertDialog,
+  AlertDialogPortal,
+  AlertDialogOverlay,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "./Surfaces/AlertDialog";
