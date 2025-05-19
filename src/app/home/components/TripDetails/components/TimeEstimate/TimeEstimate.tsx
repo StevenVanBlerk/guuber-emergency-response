@@ -1,8 +1,8 @@
 const TimeEstimate = () => {
   return (
-    <div className="text-secondary-foreground h-[70px] w-[70px] content-center rounded bg-black p-2 text-center">
-      <div className="text-2xl">99</div>
-      <div className="text-sm">minutes</div>
+    <div className="h-[60px] w-[60px] content-center rounded bg-black text-center text-white">
+      <div className="text-2xl">4</div>
+      <div className="text-sm">min</div>
     </div>
   );
 };
